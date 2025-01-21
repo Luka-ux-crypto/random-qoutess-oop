@@ -35,6 +35,7 @@ p {
 .btn {
   font-size: 16px;
   padding: 10px 20px;
+  margin: 0px 10px;
   color: #ffffff;
   border: none;
   border-radius: 10px;
@@ -47,6 +48,17 @@ p {
 .btn-primary:hover {
   background-color: #3700b3; /* Darker purple for hover effect */
 }
+
+.btn-secondary {
+  background-color: rgb(73, 214, 73);
+  color: white;
+  border: 1px solid rgb(82, 214, 82);
+}
+.btn-secondary:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
 .btn-delete {
   background-color: transparent;
   color: red;
