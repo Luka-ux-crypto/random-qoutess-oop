@@ -1,4 +1,3 @@
-import quotes from '../data/quotes.js';
 import Quote from './Quote.js';
 import RandomQuote from './RandomQuote.js';
 
