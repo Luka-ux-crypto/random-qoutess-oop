@@ -8,13 +8,25 @@ class RandomQuote {
     const { id, text, author } = quotes[randomIndex];
     return new Quote(id, text, author);
   }
-  static async getRandomQuoteViaAPI() {
+  static async getRandomQuoteViaPublicAPI() {
     const url = 'https://quoteslate.vercel.app/api/quotes/random';
     const option = { headers: { 'Content-Type': 'application/json' } };
     try {
       const response = await fetch(url, option);
       const { id, quote, author } = await response.json();
       return new Quote(id, quote, author);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  static async getRandomQuoteViaOwnAPI() {
+    const url = 'http://localhost:3000/quotes/random-single';
+    const option = { headers: { 'Content-Type': 'application/json' } };
+    try {
+      const response = await fetch(url, option);
+      const quote = await response.json();
+      const { id, text, author } = quote;
+      return new Quote(id, text, author);
     } catch (error) {
       console.error(error);
     }
