@@ -1,6 +1,7 @@
 import quotes from '../data/quotes.js';
 import MathUtils from '../Utils/MathUtils.js';
 import Quote from './Quote.js';
+import config from '../../config.js';
 
 class RandomQuote {
   static getRandomQuote() {
@@ -9,7 +10,7 @@ class RandomQuote {
     return new Quote(id, text, author);
   }
   static async getRandomQuoteViaPublicAPI() {
-    const url = 'https://quoteslate.vercel.app/api/quotes/random';
+    const url = `${config.PUBLIC_API_URL}/quotes/random`;
     const option = { headers: { 'Content-Type': 'application/json' } };
     try {
       const response = await fetch(url, option);
@@ -20,7 +21,7 @@ class RandomQuote {
     }
   }
   static async getRandomQuoteViaOwnAPI() {
-    const url = 'http://localhost:3000/quotes/random-single';
+    const url = `${config.API_URL}/quotes/random-single`;
     const option = { headers: { 'Content-Type': 'application/json' } };
     try {
       const response = await fetch(url, option);
